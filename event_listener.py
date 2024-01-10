@@ -25,9 +25,5 @@ async def listen_for_events_until(
                     if until(seen_events, filtered_events):
                         return
 
-        except Exception as e:
-            if isinstance(e, ConnectionClosedError):
-                logger.debug("🚨 Connection closed, reconnecting...", "red")
-            else:
-                logger.debug(f"🚨 {str(e)}")
-                raise e
+        except ConnectionClosedError:
+            logger.debug("🚨 Connection closed, reconnecting...", "red")

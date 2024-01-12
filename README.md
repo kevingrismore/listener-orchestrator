@@ -2,4 +2,5 @@ This example uses the `PrefectCloudEventSubscriber` to block execution of a flow
 
 Though this example is only looking for events emitted by the flows it's running, it could potentially listen for events from any source.
 
-[flow run graph](/listener-orchestrator.png)
+![flow run graph](/listener-orchestrator.png)
+Note that in this image, the child deployments are submitted before the event listener begins, but appear slightly delayed because of their momentary scheduled/pending states.
